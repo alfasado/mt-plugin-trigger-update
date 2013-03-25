@@ -3,7 +3,7 @@ use strict;
 use base qw/TriggerUpdate::L10N/;
 
 our %Lexicon = (
-    'Rebuild specific entrirs at update entry.' => 'エントリーのアップデート時に特定のブログ記事/ウェブページを再構築します。',
+    'Rebuild specific templates,entrirs and categories at update entry.' => 'エントリーのアップデート時に特定のインデックス/ブログ記事/ウェブページ/カテゴリを再構築します。',
 );
 
 1;

@@ -1,5 +1,9 @@
 update_triggers:
     - trigger:
+        blog_id: 0
+        entry: 1
+        index_ids: 93
+    - trigger:
         blog_id: 1
         page: 1
         entry_ids: 1,2,3,4
