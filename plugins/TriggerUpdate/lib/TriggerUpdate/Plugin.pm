@@ -5,7 +5,7 @@ use File::Spec;
 sub _trigger_update {
     my ( $cb, $app, $obj, $original ) = @_;
     my $rebuild;
-    if ( $cb->name eq 'scheduled_post_published' ) {
+    if ( $cb->name =~ /^scheduled_post/ ) {
         $rebuild = 1;
     } else {
         if ( defined $original ) {

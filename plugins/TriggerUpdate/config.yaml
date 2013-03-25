@@ -1,7 +1,7 @@
 id  : TriggerUpdate
 key : triggerupdate
 name: TriggerUpdate
-version: 0.1
+version: 0.2
 description: '<__trans phrase="Rebuild specific entrirs at update entry.">'
 l10n_class: TriggerUpdate::L10N
 author_name: Alfasado Inc.
