@@ -9,3 +9,4 @@ author_link: http://alfasado.net/
 callbacks:
     cms_post_save.entry: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
     scheduled_post_published: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
+    scheduled_post_unpublished: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
