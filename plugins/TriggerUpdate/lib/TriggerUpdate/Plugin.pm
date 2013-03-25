@@ -22,7 +22,7 @@ sub _trigger_update {
     return 1 unless $rebuild;
     my $plugin = MT->component( 'TriggerUpdate' );
     require MT::Util::YAML;
-    my $yaml = File::Spec->catfile( $plugin->path, 'YAML', 'trigger.yaml' );
+    my $yaml = File::Spec->catfile( $plugin->path, 'YAML', 'triggers.yaml' );
     if (! $obj->blog->file_mgr->exists( $yaml ) ) {
         return 1;
     }
