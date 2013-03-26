@@ -10,7 +10,8 @@ sub _trigger_update {
     } else {
         if ( defined $original ) {
             if ( ( $obj->status != $original->status )
-                || ( $obj->title != $original->title ) ) {
+                || ( $obj->title != $original->title )
+                || ( $obj->authored_on != $original->authored_on ) ) {
                 $rebuild = 1;
             }
         } else {
@@ -64,11 +65,14 @@ sub _trigger_update {
     }
     return 1 unless $continue;
     require MT::WeblogPublisher;
-    my $pub = MT::WeblogPublisher->new;
+    my $pub = MT::WeblogPublisher->new();
+    my $has_hires = eval 'require Time::HiRes; 1' ? 1 : 0;
     if ( scalar @entry_ids ) {
         require MT::Entry;
         my @entries = MT::Entry->load( { id => \@entry_ids, class => [ 'entry', 'page' ] } );
         for my $entry ( @entries ) {
+            my $start_time = $has_hires ? Time::HiRes::time() : time;
+            $pub->start_time( $start_time );
             $pub->rebuild_entry(
                 Entry => $entry,
                 Blog => $entry->blog,
@@ -79,6 +83,8 @@ sub _trigger_update {
         require MT::FileInfo;
         my @categories_info = MT::FileInfo->load( { category_id => \@category_ids } );
         for my $fi ( @categories_info ) {
+            my $start_time = $has_hires ? Time::HiRes::time() : time;
+            $pub->start_time( $start_time );
             $pub->rebuild_from_fileinfo( $fi );
         }
     }
@@ -86,6 +92,8 @@ sub _trigger_update {
         require MT::Template;
         my @templates = MT::Template->load( { id => \@index_ids } );
         for my $tmpl ( @templates ) {
+            my $start_time = $has_hires ? Time::HiRes::time() : time;
+            $pub->start_time( $start_time );
             $pub->rebuild_indexes( Blog => $tmpl->blog, Template => $tmpl, Force => 1 );
         }
     }
