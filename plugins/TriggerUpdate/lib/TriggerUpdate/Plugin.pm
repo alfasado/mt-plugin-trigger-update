@@ -50,7 +50,7 @@ sub _trigger_update {
                 my $eids = $trigger->{ entry_ids };
                 my $iids = $trigger->{ index_ids };
                 my $cids = $trigger->{ category_ids };
-                if ( $eids || $iids ) {
+                if ( $eids || $iids || $cids ) {
                     my @entries = split( /,/, $eids ) if $eids;
                     my @indexes = split( /,/, $iids ) if $iids;
                     my @categories = split( /,/, $cids ) if $cids;
