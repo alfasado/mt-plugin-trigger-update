@@ -1,7 +1,7 @@
 id  : TriggerUpdate
 key : triggerupdate
 name: TriggerUpdate
-version: 0.3
+version: 0.4
 description: '<__trans phrase="Rebuild specific templates,entrirs and categories at update entry.">'
 l10n_class: TriggerUpdate::L10N
 author_name: Alfasado Inc.
@@ -13,3 +13,5 @@ callbacks:
     cms_post_delete.page: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
     scheduled_post_published: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
     scheduled_post_unpublished: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
+    cms_workflow_published.entry: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
+    cms_workflow_published.page: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
