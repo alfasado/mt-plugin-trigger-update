@@ -10,7 +10,7 @@ sub _trigger_update {
     } else {
         if ( defined $original ) {
             if ( ( $obj->status != $original->status )
-                || ( $obj->title != $original->title )
+                || ( $obj->title ne $original->title )
                 || ( $obj->authored_on != $original->authored_on ) ) {
                 $rebuild = 1;
             }
