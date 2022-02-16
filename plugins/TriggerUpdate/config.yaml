@@ -7,11 +7,27 @@ l10n_class: TriggerUpdate::L10N
 author_name: Alfasado Inc.
 author_link: http://alfasado.net/
 callbacks:
-    cms_post_save.entry: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
-    cms_post_save.page: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
-    cms_post_delete.entry: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
-    cms_post_delete.page: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
-    scheduled_post_published: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
-    scheduled_post_unpublished: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
-    cms_workflow_published.entry: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
-    cms_workflow_published.page: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
+    cms_post_save.entry:
+        handler: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
+        priority: 10
+    cms_post_save.page:
+        handler: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
+        priority: 10
+    cms_post_delete.entry:
+        handler: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
+        priority: 10
+    cms_post_delete.page:
+        handler: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
+        priority: 10
+    scheduled_post_published:
+        handler: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
+        priority: 10
+    scheduled_post_unpublished:
+        handler: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
+        priority: 10
+    cms_workflow_published.entry:
+        handler: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
+        priority: 10
+    cms_workflow_published.page:
+        handler: $triggerupdate::TriggerUpdate::Plugin::_trigger_update
+        priority: 10
